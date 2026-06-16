@@ -25,6 +25,9 @@ TOPICS = ["tech", "india", "world", "science", "business", "sports", "health", "
 class Settings:
     DATABASE_URL: str = os.getenv("DATABASE_URL", "postgresql://user:password@localhost:5432/newsdash")
     REDIS_URL: str = os.getenv("REDIS_URL", "redis://localhost:6379/0")
+    JWT_SECRET_KEY: str = os.getenv("JWT_SECRET_KEY", "change-me-in-production")
+    JWT_ALGORITHM: str = os.getenv("JWT_ALGORITHM", "HS256")
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", "10080"))
     ANTHROPIC_API_KEY: str | None = (
         None if os.getenv("ANTHROPIC_API_KEY") in (None, "", "your_key_here") else os.getenv("ANTHROPIC_API_KEY")
     )

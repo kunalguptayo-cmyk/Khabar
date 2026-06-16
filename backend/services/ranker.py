@@ -1,11 +1,10 @@
 from collections import Counter
 from datetime import datetime, timedelta
 
-from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from config import get_settings
-from models import Article, TopicWeight
+from models import Article
 
 
 def score_article(article: Article, topic_weights: dict[str, float]) -> float:
@@ -48,7 +47,7 @@ def choose_diverse_articles(articles: list[Article]) -> list[Article]:
 def score_and_mark_digest(db: Session) -> list[Article]:
     settings = get_settings()
     cutoff = datetime.utcnow() - timedelta(hours=settings.FETCH_WINDOW_HOURS)
-    weights = {row.topic: row.weight for row in db.execute(select(TopicWeight)).scalars().all()}
+    weights: dict[str, float] = {}
     articles = (
         db.execute(
             select(Article)
