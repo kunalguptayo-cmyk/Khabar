@@ -1,10 +1,9 @@
 :root {
-  color: #1f2933;
-  background: #ffffff;
-  font-family:
-    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
+  color: #111111;
+  background: #fafafa;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.5;
+  font-weight: 400;
 }
 
 * {
@@ -14,6 +13,8 @@
 body {
   margin: 0;
   min-width: 320px;
+  color: #111111;
+  background: #fafafa;
 }
 
 a {
@@ -22,7 +23,7 @@ a {
 }
 
 a:hover {
-  color: #2458a6;
+  color: #111111;
 }
 
 .page {
@@ -37,23 +38,24 @@ a:hover {
   justify-content: space-between;
   gap: 16px;
   margin-bottom: 22px;
-  color: #52606d;
+  color: #666666;
 }
 
-.top-nav a {
-  color: #2458a6;
+.brand-link {
+  color: #111111;
   font-weight: 700;
+  letter-spacing: 0;
 }
 
 .top-nav button,
 .auth-form button {
-  border: 1px solid #2458a6;
+  border: 1px solid #1a1a1a;
   border-radius: 6px;
-  background: #2458a6;
+  background: #1a1a1a;
   color: #ffffff;
   cursor: pointer;
   font: inherit;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .top-nav button {
@@ -62,7 +64,8 @@ a:hover {
 
 .top-nav button:hover,
 .auth-form button:hover {
-  background: #1d4d8f;
+  border-color: #000000;
+  background: #000000;
 }
 
 .auth-page {
@@ -70,42 +73,47 @@ a:hover {
   display: grid;
   place-items: center;
   padding: 24px;
-  background: #f6f8fb;
+  background: #fafafa;
 }
 
 .auth-panel {
   width: min(420px, 100%);
-  border: 1px solid #d8e0e8;
+  border: 1px solid #e5e5e5;
   border-radius: 8px;
-  padding: 28px;
+  padding: 32px;
   background: #ffffff;
+  box-shadow: 0 10px 30px rgb(17 17 17 / 5%);
+  text-align: center;
 }
 
 .auth-form {
   display: grid;
   gap: 16px;
-  margin-top: 24px;
+  margin-top: 26px;
+  text-align: left;
 }
 
 .auth-form label {
   display: grid;
   gap: 6px;
-  color: #52606d;
-  font-weight: 700;
+  color: #111111;
+  font-size: 0.92rem;
+  font-weight: 600;
 }
 
 .auth-form input {
   width: 100%;
-  border: 1px solid #cbd5e1;
+  border: 1px solid #e5e5e5;
   border-radius: 6px;
-  padding: 11px 12px;
-  color: #1f2933;
+  padding: 12px 13px;
+  color: #111111;
   font: inherit;
+  background: #ffffff;
 }
 
 .auth-form input:focus {
-  border-color: #2458a6;
-  outline: 3px solid #dbeafe;
+  border-color: #1a1a1a;
+  outline: 3px solid #f1f1f1;
 }
 
 .auth-form button {
@@ -128,12 +136,15 @@ a:hover {
 
 .auth-switch {
   margin: 18px 0 0;
-  color: #52606d;
+  color: #666666;
+  font-size: 0.95rem;
 }
 
 .auth-switch a {
-  color: #2458a6;
-  font-weight: 700;
+  color: #111111;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .digest-header {
@@ -141,22 +152,29 @@ a:hover {
   align-items: flex-end;
   justify-content: space-between;
   gap: 24px;
-  border-bottom: 1px solid #dde3ea;
+  border-bottom: 1px solid #e5e5e5;
   padding-bottom: 20px;
 }
 
 .date-label,
 .article-count {
   margin: 0;
-  color: #697586;
+  color: #666666;
   font-size: 0.95rem;
 }
 
 h1 {
   margin: 4px 0 0;
-  font-size: clamp(2rem, 5vw, 3rem);
+  color: #111111;
+  font-size: clamp(2.1rem, 4vw, 3rem);
   line-height: 1.05;
   letter-spacing: 0;
+}
+
+.tagline {
+  margin: 8px 0 0;
+  color: #666666;
+  font-size: 1rem;
 }
 
 .topic-breakdown {
@@ -164,7 +182,7 @@ h1 {
   flex-wrap: wrap;
   gap: 8px 14px;
   margin: 18px 0 26px;
-  color: #52606d;
+  color: #666666;
   font-size: 0.95rem;
 }
 
@@ -179,18 +197,22 @@ h1 {
 
 .article-card,
 .state-panel {
-  border: 1px solid #d8e0e8;
+  border: 1px solid #e5e5e5;
   border-radius: 8px;
-  padding: 18px;
+  padding: 22px;
   background: #ffffff;
 }
 
 .article-card {
-  transition: border-color 120ms ease;
+  border-left-width: 3px;
+  transition:
+    box-shadow 140ms ease,
+    transform 140ms ease;
 }
 
 .article-card:hover {
-  border-color: #9fb3c8;
+  box-shadow: 0 8px 24px rgb(17 17 17 / 7%);
+  transform: translateY(-1px);
 }
 
 .meta-row {
@@ -198,46 +220,53 @@ h1 {
   flex-wrap: wrap;
   align-items: center;
   gap: 8px 12px;
-  color: #697586;
+  color: #666666;
   font-size: 0.88rem;
 }
 
-.topic-badge {
-  border-radius: 999px;
-  padding: 3px 9px;
-  color: #ffffff;
+.topic-name {
+  color: #111111;
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0;
 }
 
-.topic-tech {
-  background: #2f80ed;
+.source-name {
+  color: #666666;
+  font-weight: 500;
 }
 
-.topic-india {
-  background: #d97706;
+.topic-border-tech {
+  border-left-color: #2f80ed;
 }
 
-.topic-world {
-  background: #64748b;
+.topic-border-india {
+  border-left-color: #d97706;
 }
 
-.topic-science {
-  background: #2f855a;
+.topic-border-world {
+  border-left-color: #64748b;
 }
 
-.topic-business {
-  background: #7c3aed;
+.topic-border-science {
+  border-left-color: #2f855a;
 }
 
-.topic-health {
-  background: #0f766e;
+.topic-border-business {
+  border-left-color: #7c3aed;
 }
 
-.topic-other {
-  background: #94a3b8;
+.topic-border-health {
+  border-left-color: #0f766e;
+}
+
+.topic-border-sports {
+  border-left-color: #c2410c;
+}
+
+.topic-border-other {
+  border-left-color: #999999;
 }
 
 .article-card h2 {
@@ -247,9 +276,14 @@ h1 {
   letter-spacing: 0;
 }
 
+.article-card h2 a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .summary {
   margin: 0;
-  color: #3f4f5f;
+  color: #333333;
 }
 
 .feedback-row {
@@ -259,9 +293,9 @@ h1 {
 }
 
 .feedback-row button {
-  width: 38px;
-  height: 34px;
-  border: 1px solid #cbd5e1;
+  width: 34px;
+  height: 32px;
+  border: 1px solid #e5e5e5;
   border-radius: 6px;
   background: #ffffff;
   cursor: pointer;
@@ -270,8 +304,8 @@ h1 {
 
 .feedback-row button:hover,
 .feedback-row button.selected {
-  border-color: #2458a6;
-  background: #edf4ff;
+  border-color: #1a1a1a;
+  background: #fafafa;
 }
 
 .feedback-row button:disabled {
@@ -281,7 +315,7 @@ h1 {
 
 .state-panel {
   margin-top: 24px;
-  color: #52606d;
+  color: #666666;
 }
 
 .state-panel.error {
